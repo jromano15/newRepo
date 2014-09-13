@@ -25,5 +25,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)showAlert{
+    UIAlertView *alertView=[[UIAlertView alloc]
+                            initWithTitle:@"hello"
+                            message:@"this is my first app"
+                            delegate:nil
+                            cancelButtonTitle:@"awesome"
+                            otherButtonTitles:nil];
+                            [alertView show];
+                                               
+                            }
+                            
 @end

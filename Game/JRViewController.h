@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JRViewController : UIViewController
-
+-(IBAction)showAlert;
 @end
