@@ -21,8 +21,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _currentValue= self.slider.value;
-    _targetValue= 1+ arc4random_uniform(100);
+    [self startNewRound];
+    [self updateLabels];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,11 +43,23 @@
                             cancelButtonTitle:@"awesome"
                             otherButtonTitles:nil];
                             [alertView show];
+    [self startNewRound];
+    [self updateLabels];
                                                
 }
 -(IBAction) sliderMoved: (UISlider *)slider{
    // NSLog(@"The value of the slide is now %f", slider.value);
     _currentValue=lroundf(slider.value);
+}
+-(IBAction) startNewRound
+{
+    _targetValue = 1 + arc4random_uniform(100);
+    _currentValue=50;
+    self.slider.value=_currentValue;
+}
+- (void) updateLabels
+{
+    self.targetLabel.text = [NSString stringWithFormat: @"%d", _targetValue];
 }
 
                             
